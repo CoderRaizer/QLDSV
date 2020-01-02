@@ -97,6 +97,7 @@ namespace QLDSV.Forms
 
         }
 
+
         private void barBtnXoa_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             if (bdsDiem.Count > 0)
