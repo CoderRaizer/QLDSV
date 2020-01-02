@@ -32,7 +32,7 @@
             this.panel = new System.Windows.Forms.Panel();
             this.gbTTSinhVien = new DevExpress.XtraEditors.GroupControl();
             this.lookUpEditChuyenLop = new DevExpress.XtraEditors.LookUpEdit();
-            this.SINHVIENBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.bdsSINHVIEN = new System.Windows.Forms.BindingSource(this.components);
             this.DS = new QLDSV.DS();
             this.mAMHLabel = new System.Windows.Forms.Label();
             this.txtMaLop = new DevExpress.XtraEditors.TextEdit();
@@ -55,7 +55,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gbTTSinhVien)).BeginInit();
             this.gbTTSinhVien.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpEditChuyenLop.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.SINHVIENBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdsSINHVIEN)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaLop.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTenSV.Properties)).BeginInit();
@@ -105,7 +105,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.lookUpEditChuyenLop.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("MASV", "Mã sinh viên")});
-            this.lookUpEditChuyenLop.Properties.DataSource = this.SINHVIENBindingSource;
+            this.lookUpEditChuyenLop.Properties.DataSource = this.bdsSINHVIEN;
             this.lookUpEditChuyenLop.Properties.DisplayMember = "MASV";
             this.lookUpEditChuyenLop.Properties.NullText = "Nhâp mã sv...";
             this.lookUpEditChuyenLop.Properties.SearchMode = DevExpress.XtraEditors.Controls.SearchMode.AutoSearch;
@@ -114,10 +114,10 @@
             this.lookUpEditChuyenLop.TabIndex = 1;
             this.lookUpEditChuyenLop.EditValueChanged += new System.EventHandler(this.lookUpEditChuyenLop_EditValueChanged);
             // 
-            // SINHVIENBindingSource
+            // bdsSINHVIEN
             // 
-            this.SINHVIENBindingSource.DataMember = "SINHVIEN";
-            this.SINHVIENBindingSource.DataSource = this.DS;
+            this.bdsSINHVIEN.DataMember = "SINHVIEN";
+            this.bdsSINHVIEN.DataSource = this.DS;
             // 
             // DS
             // 
@@ -305,7 +305,7 @@
             this.gbTTSinhVien.ResumeLayout(false);
             this.gbTTSinhVien.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpEditChuyenLop.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.SINHVIENBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdsSINHVIEN)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DS)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaLop.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTenSV.Properties)).EndInit();
@@ -335,7 +335,7 @@
         private System.Windows.Forms.Label tENMHLabel;
         private DevExpress.XtraEditors.TextEdit txtTenSV;
         private DS DS;
-        private System.Windows.Forms.BindingSource SINHVIENBindingSource;
+        private System.Windows.Forms.BindingSource bdsSINHVIEN;
         private DSTableAdapters.SINHVIENTableAdapter SINHVIENTableAdapter;
     }
 }
