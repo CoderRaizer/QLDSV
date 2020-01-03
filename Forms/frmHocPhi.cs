@@ -229,6 +229,7 @@ namespace QLDSV.Forms
 
         private void btnThem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            this.errorProvider.Clear();
             try
             {
                 
@@ -259,26 +260,49 @@ namespace QLDSV.Forms
 
         private void btnGhi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            this.errorProvider.Clear();
+            // check giá trị trước khi add
+            float soTienDong = float.Parse(this.spiSoTienDong.Value.ToString());
+            float soHocPhi = float.Parse(this.spiHocPhi.Value.ToString());
 
            
+            if (string.IsNullOrEmpty(txtNienKhoa.Text))
+            {
+                this.errorProvider.SetError(this.txtNienKhoa, "Không được để trống !");
+                return;
+            }
+
+            if (spiHocKy.Value == 0)
+            {
+                this.errorProvider.SetError(this.spiHocKy, "Không được để trống !");
+                return;
+
+            }
+
+
+            if (spiHocPhi.Value == 0)
+            {
+                this.errorProvider.SetError(this.spiHocPhi, "Không được để trống !");
+                return;
+
+            }
+            if (spiSoTienDong.Value == 0)
+            {
+                this.errorProvider.SetError(this.spiSoTienDong, "Không được để trống !");
+                return;
+            }
+
+            if (soTienDong > soHocPhi)
+            {
+                this.errorProvider.SetError(this.spiSoTienDong, "Số tiền đóng không được lớn hơn số tiền học phí !");
+                return;
+            }
+
+
             try
             {
 
-                // check giá trị trước khi add
-                float soTienDong = float.Parse(this.spiSoTienDong.Value.ToString());
-                float soHocPhi = float.Parse(this.spiHocPhi.Value.ToString());
-
-                if (soTienDong > soHocPhi)
-                {
-                    XtraMessageBox.Show("Số tiền đóng không được lớn hơn học phí !", "", MessageBoxButtons.OK);
-                    return;
-                }
-                if (spiHocKy.Value == 0 || spiHocPhi.Value == 0)
-                {
-                    XtraMessageBox.Show("Dữ liệu không được để trống !", "", MessageBoxButtons.OK);
-                    return;
-                }
-
+                
            
                 if (CanSave())
                 {
@@ -394,19 +418,7 @@ namespace QLDSV.Forms
 
         private void gvTTHocPhi_FocusedRowChanged(object sender, FocusedRowChangedEventArgs e)
         {
-            if (_flagEdit)
-            {
-                this.colHOCPHI.OptionsColumn.AllowEdit = true;
-                this.colHOCPHI.OptionsColumn.ReadOnly = false;
-                this.colSOTIENDADONG.OptionsColumn.AllowEdit = true;
-                this.colSOTIENDADONG.OptionsColumn.ReadOnly = false;
-            }
-            else
-            {
-                this.colHOCPHI.OptionsColumn.AllowEdit = false;
-                this.colSOTIENDADONG.OptionsColumn.AllowEdit = false;
-            }
-
+           
         }
 
         private void gvTTHocPhi_ValidateRow(object sender, ValidateRowEventArgs e)
@@ -429,17 +441,32 @@ namespace QLDSV.Forms
 
         private void gvTTHocPhi_InvalidRowException(object sender, InvalidRowExceptionEventArgs e)
         {
-
             e.ExceptionMode = ExceptionMode.NoAction;
         }
 
-        private void spiHocPhi_Properties_EditValueChanged(object sender, EventArgs e)
+      
+
+        
+        private void spiHocPhi_Validating(object sender, CancelEventArgs e)
         {
-            this.spiSoTienDong.Text = this.spiHocKy.Text;
+            this.spiSoTienDong.Value = this.spiHocPhi.Value;
         }
 
-        private void spiSoTienDong_Validating(object sender, CancelEventArgs e)
+        private void gvTTHocPhi_GotFocus(object sender, EventArgs e)
         {
+            if (_flagEdit)
+            {
+                this.colHOCPHI.OptionsColumn.AllowEdit = true;
+                this.colHOCPHI.OptionsColumn.ReadOnly = false;
+                this.colSOTIENDADONG.OptionsColumn.AllowEdit = true;
+                this.colSOTIENDADONG.OptionsColumn.ReadOnly = false;
+            }
+            else
+            {
+                this.colHOCPHI.OptionsColumn.AllowEdit = false;
+                this.colSOTIENDADONG.OptionsColumn.AllowEdit = false;
+            }
+
 
         }
     }

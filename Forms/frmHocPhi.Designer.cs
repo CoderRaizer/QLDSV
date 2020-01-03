@@ -68,6 +68,7 @@
             this.spiHocPhi = new DevExpress.XtraEditors.SpinEdit();
             this.spiHocKy = new DevExpress.XtraEditors.SpinEdit();
             this.txtNienKhoa = new DevExpress.XtraEditors.TextEdit();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.barManager)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gbTTSinhVien)).BeginInit();
             this.gbTTSinhVien.SuspendLayout();
@@ -85,6 +86,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.spiHocPhi.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spiHocKy.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNienKhoa.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // mAMHLabel
@@ -312,6 +314,7 @@
             this.gvTTHocPhi.InvalidRowException += new DevExpress.XtraGrid.Views.Base.InvalidRowExceptionEventHandler(this.gvTTHocPhi_InvalidRowException);
             this.gvTTHocPhi.ValidateRow += new DevExpress.XtraGrid.Views.Base.ValidateRowEventHandler(this.gvTTHocPhi_ValidateRow);
             this.gvTTHocPhi.CustomColumnDisplayText += new DevExpress.XtraGrid.Views.Base.CustomColumnDisplayTextEventHandler(this.gvTTHocPhi_CustomColumnDisplayText_1);
+            this.gvTTHocPhi.GotFocus += new System.EventHandler(this.gvTTHocPhi_GotFocus);
             // 
             // colMASV
             // 
@@ -467,7 +470,6 @@
             this.spiSoTienDong.Size = new System.Drawing.Size(100, 20);
             this.spiSoTienDong.TabIndex = 15;
             this.spiSoTienDong.CustomDisplayText += new DevExpress.XtraEditors.Controls.CustomDisplayTextEventHandler(this.spiHocPhi_CustomDisplayText);
-            this.spiSoTienDong.Validating += new System.ComponentModel.CancelEventHandler(this.spiSoTienDong_Validating);
             // 
             // spiHocPhi
             // 
@@ -485,6 +487,7 @@
             this.spiHocPhi.Size = new System.Drawing.Size(100, 20);
             this.spiHocPhi.TabIndex = 13;
             this.spiHocPhi.CustomDisplayText += new DevExpress.XtraEditors.Controls.CustomDisplayTextEventHandler(this.spiHocPhi_CustomDisplayText);
+            this.spiHocPhi.Validating += new System.ComponentModel.CancelEventHandler(this.spiHocPhi_Validating);
             // 
             // spiHocKy
             // 
@@ -523,6 +526,10 @@
             this.txtNienKhoa.Size = new System.Drawing.Size(157, 20);
             this.txtNienKhoa.TabIndex = 9;
             // 
+            // errorProvider
+            // 
+            this.errorProvider.ContainerControl = this;
+            // 
             // frmHocPhi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -557,6 +564,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.spiHocPhi.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.spiHocKy.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNienKhoa.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -602,5 +610,6 @@
         private DevExpress.XtraEditors.SpinEdit spiHocPhi;
         private DevExpress.XtraEditors.SpinEdit spiHocKy;
         private DevExpress.XtraEditors.TextEdit txtNienKhoa;
+        private System.Windows.Forms.ErrorProvider errorProvider;
     }
 }
