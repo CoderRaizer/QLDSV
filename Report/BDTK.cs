@@ -79,7 +79,9 @@ namespace QLDSV.Report
         private void button_IN_Click(object sender, EventArgs e)
         {
             XtraReport_BDTK report = new XtraReport_BDTK(this.MALOP);
+            report.lblTenLop.Text = this.cmbLop.Text;
             report.lblAuthor.Text = "Người In Ấn : " + Program.MHoten;
+            report.lblTimeReport.Text = DateTime.Now.ToString();
             ReportPrintTool print = new ReportPrintTool(report);
             print.ShowPreviewDialog();
         }

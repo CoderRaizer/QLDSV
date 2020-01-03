@@ -34,6 +34,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(XtraReport_BDTK));
             DevExpress.XtraReports.UI.CrossTab.CrossTabColumnDefinition crossTabColumnDefinition1 = new DevExpress.XtraReports.UI.CrossTab.CrossTabColumnDefinition(100F);
             DevExpress.XtraReports.UI.CrossTab.CrossTabColumnDefinition crossTabColumnDefinition2 = new DevExpress.XtraReports.UI.CrossTab.CrossTabColumnDefinition(100F);
+            DevExpress.XtraReports.UI.CrossTab.CrossTabColumnDefinition crossTabColumnDefinition3 = new DevExpress.XtraReports.UI.CrossTab.CrossTabColumnDefinition(100F);
             DevExpress.XtraReports.UI.CrossTab.CrossTabColumnField crossTabColumnField1 = new DevExpress.XtraReports.UI.CrossTab.CrossTabColumnField();
             DevExpress.XtraReports.UI.CrossTab.CrossTabDataField crossTabDataField1 = new DevExpress.XtraReports.UI.CrossTab.CrossTabDataField();
             DevExpress.XtraReports.UI.CrossTab.CrossTabRowDefinition crossTabRowDefinition1 = new DevExpress.XtraReports.UI.CrossTab.CrossTabRowDefinition(25F);
@@ -44,6 +45,8 @@
             this.crossTabHeaderStyle = new DevExpress.XtraReports.UI.XRControlStyle();
             this.crossTabTotalStyle = new DevExpress.XtraReports.UI.XRControlStyle();
             this.ReportHeader = new DevExpress.XtraReports.UI.ReportHeaderBand();
+            this.lblTenLop = new DevExpress.XtraReports.UI.XRLabel();
+            this.lblLop = new DevExpress.XtraReports.UI.XRLabel();
             this.label1 = new DevExpress.XtraReports.UI.XRLabel();
             this.Detail = new DevExpress.XtraReports.UI.DetailBand();
             this.crossTab1 = new DevExpress.XtraReports.UI.XRCrossTab();
@@ -60,8 +63,9 @@
             this.ds1 = new QLDSV.DS();
             this.TopMargin = new DevExpress.XtraReports.UI.TopMarginBand();
             this.BottomMargin = new DevExpress.XtraReports.UI.BottomMarginBand();
-            this.TitleStyle = new DevExpress.XtraReports.UI.XRControlStyle();
             this.lblAuthor = new DevExpress.XtraReports.UI.XRLabel();
+            this.TitleStyle = new DevExpress.XtraReports.UI.XRControlStyle();
+            this.lblTimeReport = new DevExpress.XtraReports.UI.XRLabel();
             ((System.ComponentModel.ISupportInitialize)(this.crossTab1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ds1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
@@ -113,13 +117,37 @@
             // ReportHeader
             // 
             this.ReportHeader.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+            this.lblTenLop,
+            this.lblLop,
             this.label1});
-            this.ReportHeader.HeightF = 42.01302F;
+            this.ReportHeader.HeightF = 109.7214F;
             this.ReportHeader.Name = "ReportHeader";
+            // 
+            // lblTenLop
+            // 
+            this.lblTenLop.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTenLop.LocationFloat = new DevExpress.Utils.PointFloat(146.875F, 60.37499F);
+            this.lblTenLop.Multiline = true;
+            this.lblTenLop.Name = "lblTenLop";
+            this.lblTenLop.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.lblTenLop.SizeF = new System.Drawing.SizeF(353.7744F, 23F);
+            this.lblTenLop.StylePriority.UseFont = false;
+            this.lblTenLop.Text = "TenLop";
+            // 
+            // lblLop
+            // 
+            this.lblLop.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLop.LocationFloat = new DevExpress.Utils.PointFloat(46.875F, 60.37499F);
+            this.lblLop.Multiline = true;
+            this.lblLop.Name = "lblLop";
+            this.lblLop.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.lblLop.SizeF = new System.Drawing.SizeF(100F, 23F);
+            this.lblLop.StylePriority.UseFont = false;
+            this.lblLop.Text = "LỚP :";
             // 
             // label1
             // 
-            this.label1.LocationFloat = new DevExpress.Utils.PointFloat(6F, 6F);
+            this.label1.LocationFloat = new DevExpress.Utils.PointFloat(221.625F, 20.58334F);
             this.label1.Name = "label1";
             this.label1.SizeF = new System.Drawing.SizeF(279.0244F, 30.01302F);
             this.label1.StyleName = "TitleStyle";
@@ -145,17 +173,19 @@
             this.xrCrossTabCell8,
             this.xrCrossTabCell9});
             crossTabColumnDefinition1.AutoWidthMode = DevExpress.XtraReports.UI.AutoSizeMode.ShrinkAndGrow;
-            crossTabColumnDefinition2.Visible = false;
+            crossTabColumnDefinition2.AutoWidthMode = DevExpress.XtraReports.UI.AutoSizeMode.GrowOnly;
+            crossTabColumnDefinition3.Visible = false;
             this.crossTab1.ColumnDefinitions.AddRange(new DevExpress.XtraReports.UI.CrossTab.CrossTabColumnDefinition[] {
             crossTabColumnDefinition1,
-            new DevExpress.XtraReports.UI.CrossTab.CrossTabColumnDefinition(100F),
-            crossTabColumnDefinition2});
+            crossTabColumnDefinition2,
+            crossTabColumnDefinition3});
             crossTabColumnField1.FieldName = "TENMH";
             this.crossTab1.ColumnFields.AddRange(new DevExpress.XtraReports.UI.CrossTab.CrossTabColumnField[] {
             crossTabColumnField1});
             this.crossTab1.DataAdapter = this.sP_REPORT_BDTKTableAdapter1;
             this.crossTab1.DataAreaStyleName = "crossTabDataStyle";
             crossTabDataField1.FieldName = "DIEM";
+            crossTabDataField1.SummaryType = DevExpress.XtraReports.UI.CrossTab.SummaryType.Max;
             this.crossTab1.DataFields.AddRange(new DevExpress.XtraReports.UI.CrossTab.CrossTabDataField[] {
             crossTabDataField1});
             this.crossTab1.DataMember = "SP_REPORT_BDTK";
@@ -248,10 +278,20 @@
             // BottomMargin
             // 
             this.BottomMargin.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+            this.lblTimeReport,
             this.lblAuthor});
             this.BottomMargin.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BottomMargin.Name = "BottomMargin";
             this.BottomMargin.StylePriority.UseFont = false;
+            // 
+            // lblAuthor
+            // 
+            this.lblAuthor.LocationFloat = new DevExpress.Utils.PointFloat(10.00001F, 22.52862F);
+            this.lblAuthor.Multiline = true;
+            this.lblAuthor.Name = "lblAuthor";
+            this.lblAuthor.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.lblAuthor.SizeF = new System.Drawing.SizeF(290F, 23F);
+            this.lblAuthor.Text = "lblAuthor";
             // 
             // TitleStyle
             // 
@@ -259,14 +299,14 @@
             this.TitleStyle.Name = "TitleStyle";
             this.TitleStyle.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             // 
-            // lblAuthor
+            // lblTimeReport
             // 
-            this.lblAuthor.LocationFloat = new DevExpress.Utils.PointFloat(10.00001F, 22.52862F);
-            this.lblAuthor.Multiline = true;
-            this.lblAuthor.Name = "lblAuthor";
-            this.lblAuthor.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96F);
-            this.lblAuthor.SizeF = new System.Drawing.SizeF(290F, 23F);
-            this.lblAuthor.Text = "lblAuthor";
+            this.lblTimeReport.LocationFloat = new DevExpress.Utils.PointFloat(10.00001F, 45.52863F);
+            this.lblTimeReport.Multiline = true;
+            this.lblTimeReport.Name = "lblTimeReport";
+            this.lblTimeReport.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.lblTimeReport.SizeF = new System.Drawing.SizeF(290F, 23F);
+            this.lblTimeReport.Text = "Time";
             // 
             // XtraReport_BDTK
             // 
@@ -323,5 +363,8 @@
         private DevExpress.XtraReports.UI.XRControlStyle TitleStyle;
         private DSTableAdapters.SP_REPORT_BDTKTableAdapter sP_REPORT_BDTKTableAdapter1;
         public DevExpress.XtraReports.UI.XRLabel lblAuthor;
+        private DevExpress.XtraReports.UI.XRLabel lblLop;
+        public DevExpress.XtraReports.UI.XRLabel lblTenLop;
+        public DevExpress.XtraReports.UI.XRLabel lblTimeReport;
     }
 }
