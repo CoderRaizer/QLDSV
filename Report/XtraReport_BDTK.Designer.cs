@@ -34,6 +34,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(XtraReport_BDTK));
             DevExpress.XtraReports.UI.CrossTab.CrossTabColumnDefinition crossTabColumnDefinition1 = new DevExpress.XtraReports.UI.CrossTab.CrossTabColumnDefinition(100F);
             DevExpress.XtraReports.UI.CrossTab.CrossTabColumnDefinition crossTabColumnDefinition2 = new DevExpress.XtraReports.UI.CrossTab.CrossTabColumnDefinition(100F);
+            DevExpress.XtraReports.UI.CrossTab.CrossTabColumnDefinition crossTabColumnDefinition3 = new DevExpress.XtraReports.UI.CrossTab.CrossTabColumnDefinition(100F);
             DevExpress.XtraReports.UI.CrossTab.CrossTabColumnField crossTabColumnField1 = new DevExpress.XtraReports.UI.CrossTab.CrossTabColumnField();
             DevExpress.XtraReports.UI.CrossTab.CrossTabDataField crossTabDataField1 = new DevExpress.XtraReports.UI.CrossTab.CrossTabDataField();
             DevExpress.XtraReports.UI.CrossTab.CrossTabRowDefinition crossTabRowDefinition1 = new DevExpress.XtraReports.UI.CrossTab.CrossTabRowDefinition(25F);
@@ -60,8 +61,8 @@
             this.ds1 = new QLDSV.DS();
             this.TopMargin = new DevExpress.XtraReports.UI.TopMarginBand();
             this.BottomMargin = new DevExpress.XtraReports.UI.BottomMarginBand();
-            this.TitleStyle = new DevExpress.XtraReports.UI.XRControlStyle();
             this.lblAuthor = new DevExpress.XtraReports.UI.XRLabel();
+            this.TitleStyle = new DevExpress.XtraReports.UI.XRControlStyle();
             ((System.ComponentModel.ISupportInitialize)(this.crossTab1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ds1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
@@ -114,7 +115,7 @@
             // 
             this.ReportHeader.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
             this.label1});
-            this.ReportHeader.HeightF = 42.01302F;
+            this.ReportHeader.HeightF = 42.01304F;
             this.ReportHeader.Name = "ReportHeader";
             // 
             // label1
@@ -145,17 +146,19 @@
             this.xrCrossTabCell8,
             this.xrCrossTabCell9});
             crossTabColumnDefinition1.AutoWidthMode = DevExpress.XtraReports.UI.AutoSizeMode.ShrinkAndGrow;
-            crossTabColumnDefinition2.Visible = false;
+            crossTabColumnDefinition2.AutoWidthMode = DevExpress.XtraReports.UI.AutoSizeMode.GrowOnly;
+            crossTabColumnDefinition3.Visible = false;
             this.crossTab1.ColumnDefinitions.AddRange(new DevExpress.XtraReports.UI.CrossTab.CrossTabColumnDefinition[] {
             crossTabColumnDefinition1,
-            new DevExpress.XtraReports.UI.CrossTab.CrossTabColumnDefinition(100F),
-            crossTabColumnDefinition2});
+            crossTabColumnDefinition2,
+            crossTabColumnDefinition3});
             crossTabColumnField1.FieldName = "TENMH";
             this.crossTab1.ColumnFields.AddRange(new DevExpress.XtraReports.UI.CrossTab.CrossTabColumnField[] {
             crossTabColumnField1});
             this.crossTab1.DataAdapter = this.sP_REPORT_BDTKTableAdapter1;
             this.crossTab1.DataAreaStyleName = "crossTabDataStyle";
             crossTabDataField1.FieldName = "DIEM";
+            crossTabDataField1.SummaryType = DevExpress.XtraReports.UI.CrossTab.SummaryType.Max;
             this.crossTab1.DataFields.AddRange(new DevExpress.XtraReports.UI.CrossTab.CrossTabDataField[] {
             crossTabDataField1});
             this.crossTab1.DataMember = "SP_REPORT_BDTK";
@@ -253,20 +256,20 @@
             this.BottomMargin.Name = "BottomMargin";
             this.BottomMargin.StylePriority.UseFont = false;
             // 
-            // TitleStyle
-            // 
-            this.TitleStyle.Font = new System.Drawing.Font("Arial", 18F);
-            this.TitleStyle.Name = "TitleStyle";
-            this.TitleStyle.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            // 
             // lblAuthor
             // 
             this.lblAuthor.LocationFloat = new DevExpress.Utils.PointFloat(10.00001F, 22.52862F);
             this.lblAuthor.Multiline = true;
             this.lblAuthor.Name = "lblAuthor";
-            this.lblAuthor.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96F);
+            this.lblAuthor.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.lblAuthor.SizeF = new System.Drawing.SizeF(290F, 23F);
             this.lblAuthor.Text = "lblAuthor";
+            // 
+            // TitleStyle
+            // 
+            this.TitleStyle.Font = new System.Drawing.Font("Arial", 18F);
+            this.TitleStyle.Name = "TitleStyle";
+            this.TitleStyle.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             // 
             // XtraReport_BDTK
             // 

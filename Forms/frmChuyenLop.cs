@@ -71,7 +71,7 @@ namespace QLDSV.Forms
                     adapter.UpdateCommand = new SqlCommand(QUERY, connection);
                     adapter.UpdateCommand.ExecuteNonQuery();
                     XtraMessageBox.Show("Chuyển Sinh Viên Cùng Khoa, Vào Lớp "+ maLopChuyenDenTextBox + " Thành Công", "Info", MessageBoxButtons.OK);
-                    return;
+                    this.Close();
                 }
 
                 if (STATE == 2) // INFO : CHUYỂN LỚP KHÁC KHOA -LỚP ĐÓ ĐANG TRỐNG
@@ -221,6 +221,7 @@ namespace QLDSV.Forms
                         labelSupport.Visible = true;
                         labelSupport.Text = "Chấp Nhận Chuyển Lớp Cùng Khoa ?";
                         this.buttonOK.Visible = true;
+                        this.txtMaLopChuyenDen.ReadOnly = true;
                         STATE = 1; // INFO : Chuyển Lớp Trên Cùng Khoa
                         return;
                     }
@@ -237,6 +238,7 @@ namespace QLDSV.Forms
                         if (MALOP == null) // INFO : Mã lớp không tồn tại trong Cơ Sở Dữ Liệu
                         {
                             XtraMessageBox.Show("Mã Lớp Không Tồn Tại Trong Cơ Sở Dữ Liệu!");
+                            this.buttonOK.Visible = false;
                             this.txtMaLopChuyenDen.Focus();
                             return;
                         }
@@ -257,6 +259,7 @@ namespace QLDSV.Forms
                                 labelSupport.Visible = true;
                                 this.labelSupport.Text = "Lớp hiện đang trống! Mã Sinh Viên sẽ được hệ thống tạo tự động";
                                 this.buttonOK.Visible = true;
+                                this.txtMaLopChuyenDen.ReadOnly = true;
                                 STATE = 2; // INFO : Chuyển Lớp Khác Khoa Khi Lớp Chưa Có Sinh Viên
                                 return;
                             }
@@ -281,6 +284,7 @@ namespace QLDSV.Forms
                                 this.txtMaSVMoi.Visible = true;
 
                                 this.buttonOK.Visible = true;
+                                this.txtMaLopChuyenDen.ReadOnly = true;
                                 STATE = 3; // INFO : Chuyển Lớp Khác Khoa Khi Lớp Đã Có Sinh Viên
                             }
                             command.Dispose();
