@@ -93,7 +93,7 @@ namespace QLDSV.Forms
             if (_flagEdit)
                 return true;
 
-
+            // kiểm tra mã trùng
             if (KiemTraMaTrung(cmbSinhVien.Text, txtNienKhoa.Text, spiHocKy.EditValue.ToString()) == true  )
             {
                 String notifi = "Sinh viên này đã đóng học phí trong học kỳ. Bạn có muốn chỉnh sửa !";
@@ -103,7 +103,6 @@ namespace QLDSV.Forms
 
 
                 // cancel edit dòng hiện tại.
-              
                 if (this.gvTTHocPhi.IsNewItemRow(this.gvTTHocPhi.FocusedRowHandle))
                 {
                     bdsHocPhi.CancelEdit();
@@ -124,7 +123,56 @@ namespace QLDSV.Forms
                     return false;
 
                 }
-               
+
+            }
+            //  kiểm tra nợ học phí
+            else
+            {
+                Boolean checkNoHocPhi = false;
+                for (int i = 0; i < bdsHocPhi.Count; i++)
+                {
+
+                    string nienkhoa = ((DataRowView)bdsHocPhi[_position])["NIENKHOA"].ToString();
+                    string hocky = ((DataRowView)bdsHocPhi[_position])["HOCKY"].ToString();
+
+                    float tienHocPhi = float.Parse(((DataRowView)bdsHocPhi[_position])["HOCPHI"].ToString());
+                    float tienDaDong = float.Parse(((DataRowView)bdsHocPhi[_position])["SOTIENDADONG"].ToString());
+
+                    if (tienHocPhi > tienDaDong)
+                    {
+                        checkNoHocPhi = true;
+                    }
+                }
+
+
+                if (checkNoHocPhi)
+                {
+
+                    DialogResult dr = XtraMessageBox.Show("Sinh viên này còn nợ học phí nên không được đóng học phí mới \n . Trả nợ ?"
+                        , "Cảnh báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    // cancel edit dòng hiện tại.
+                    if (this.gvTTHocPhi.IsNewItemRow(this.gvTTHocPhi.FocusedRowHandle))
+                    {
+                        bdsHocPhi.CancelEdit();
+
+                    }
+
+                    if (dr == DialogResult.No)
+                    {
+                        return false;
+                    }
+                    else if (dr == DialogResult.Yes)
+                    {
+                        _flagEdit = true;
+                        XtraMessageBox.Show("Bạn hãy nạp học phí ở lưới này ", "", MessageBoxButtons.OK);
+                        return false;
+                    }
+
+
+                 
+
+                }
+
             }
 
             return true;
@@ -183,16 +231,20 @@ namespace QLDSV.Forms
         {
             try
             {
-
+                
                 // check sinh viên đã nghĩ học
                 if (((DataRowView)bdsSinhVien[_position])["NGHIHOC"].ToString() == "True")
                 {
                     XtraMessageBox.Show("Sinh Viên này đã nghĩ học !", "", MessageBoxButtons.OK);
                     return;
+
                 }
+            
+
+
 
             }
-            catch(Exception)
+            catch (Exception)
             {
 
             }
@@ -227,8 +279,7 @@ namespace QLDSV.Forms
                     return;
                 }
 
-
-
+           
                 if (CanSave())
                 {
                     if (Save())
