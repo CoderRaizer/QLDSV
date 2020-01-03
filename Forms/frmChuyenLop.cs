@@ -103,6 +103,14 @@ namespace QLDSV.Forms
 
                 if (STATE == 3)
                 {
+                    // TODO : Kiểm tra mã sv mới có hợp lệ hay không
+                    if (this.txtMaSVMoi.Text.Trim().ToString().Length < 10)
+                    {
+                        this.buttonOK.Visible = false;
+                        this.txtMaSVMoi.Text = "";
+                        XtraMessageBox.Show("Mã Sinh Viên tối thiểu là 10 ký tự!");
+                        return;
+                    }
                     // TODO : Kiểm tra mã sv mới trùng với mã đang có ?
                     if (checkValidatedMASV(this.txtMaSVMoi.Text.Trim().ToString()) == false)
                     {
@@ -245,6 +253,7 @@ namespace QLDSV.Forms
 
                             if (MASV == null)// INFO : Lớp chưa tồn tại sinh viên
                             {
+                                this.txtMaSVMoi.Visible = false;
                                 labelSupport.Visible = true;
                                 this.labelSupport.Text = "Lớp hiện đang trống! Mã Sinh Viên sẽ được hệ thống tạo tự động";
                                 this.buttonOK.Visible = true;
