@@ -132,11 +132,11 @@ namespace QLDSV.Forms
                 for (int i = 0; i < bdsHocPhi.Count; i++)
                 {
 
-                    string nienkhoa = ((DataRowView)bdsHocPhi[_position])["NIENKHOA"].ToString();
-                    string hocky = ((DataRowView)bdsHocPhi[_position])["HOCKY"].ToString();
+                    string nienkhoa = ((DataRowView)bdsHocPhi[i])["NIENKHOA"].ToString();
+                    string hocky = ((DataRowView)bdsHocPhi[i])["HOCKY"].ToString();
 
-                    float tienHocPhi = float.Parse(((DataRowView)bdsHocPhi[_position])["HOCPHI"].ToString());
-                    float tienDaDong = float.Parse(((DataRowView)bdsHocPhi[_position])["SOTIENDADONG"].ToString());
+                    float tienHocPhi = float.Parse(((DataRowView)bdsHocPhi[i])["HOCPHI"].ToString());
+                    float tienDaDong = float.Parse(((DataRowView)bdsHocPhi[i])["SOTIENDADONG"].ToString());
 
                     if (tienHocPhi > tienDaDong)
                     {
@@ -433,6 +433,15 @@ namespace QLDSV.Forms
             e.ExceptionMode = ExceptionMode.NoAction;
         }
 
+        private void spiHocPhi_Properties_EditValueChanged(object sender, EventArgs e)
+        {
+            this.spiSoTienDong.Text = this.spiHocKy.Text;
+        }
+
+        private void spiSoTienDong_Validating(object sender, CancelEventArgs e)
+        {
+
+        }
     }
 
    

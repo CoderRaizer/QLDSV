@@ -467,6 +467,7 @@
             this.spiSoTienDong.Size = new System.Drawing.Size(100, 20);
             this.spiSoTienDong.TabIndex = 15;
             this.spiSoTienDong.CustomDisplayText += new DevExpress.XtraEditors.Controls.CustomDisplayTextEventHandler(this.spiHocPhi_CustomDisplayText);
+            this.spiSoTienDong.Validating += new System.ComponentModel.CancelEventHandler(this.spiSoTienDong_Validating);
             // 
             // spiHocPhi
             // 
