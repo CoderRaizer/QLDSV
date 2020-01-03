@@ -295,7 +295,6 @@ namespace QLDSV.Forms
                         cmd.Transaction = tran;
 
 
-
                         cmd.CommandType = CommandType.StoredProcedure;
                         string masv = ((DataRowView)bdsTemp[i])["MASV"].ToString();
                         cmd.Parameters.Add(new SqlParameter("@MASV", masv));
@@ -334,8 +333,6 @@ namespace QLDSV.Forms
                 {
                     conn.Close();
                 }
-
-
 
 
                 XtraMessageBox.Show("Thao tác thành công!", "", MessageBoxButtons.OK);
@@ -426,6 +423,7 @@ namespace QLDSV.Forms
             BindingSource bdsTemp = (BindingSource)this.gridControlDiem.DataSource;
             bdsTemp.CancelEdit();
             bdsTemp.ResetBindings(true);
+
             // gọi lại form load.
             frmDiem_Load(sender, e);
         }

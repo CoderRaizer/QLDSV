@@ -58,13 +58,13 @@
             this.colDIEM = new DevExpress.XtraGrid.Columns.GridColumn();
             this.groupControlNhapDiem = new DevExpress.XtraEditors.GroupControl();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
-            this.btnHuyy = new DevExpress.XtraEditors.SimpleButton();
             this.btnLuu = new DevExpress.XtraEditors.SimpleButton();
             this.btnNhap = new DevExpress.XtraEditors.SimpleButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnHuyy = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEditNhap)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericLanThi)).BeginInit();
@@ -402,15 +402,6 @@
             this.groupControl1.TabIndex = 2;
             this.groupControl1.Text = "Điều khiển";
             // 
-            // btnHuyy
-            // 
-            this.btnHuyy.Location = new System.Drawing.Point(194, 37);
-            this.btnHuyy.Name = "btnHuyy";
-            this.btnHuyy.Size = new System.Drawing.Size(75, 23);
-            this.btnHuyy.TabIndex = 1;
-            this.btnHuyy.Text = "Cancel";
-            this.btnHuyy.Click += new System.EventHandler(this.btnHuyy_Click);
-            // 
             // btnLuu
             // 
             this.btnLuu.Location = new System.Drawing.Point(95, 37);
@@ -465,6 +456,15 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(986, 273);
             this.panel2.TabIndex = 4;
+            // 
+            // btnHuyy
+            // 
+            this.btnHuyy.Location = new System.Drawing.Point(194, 37);
+            this.btnHuyy.Name = "btnHuyy";
+            this.btnHuyy.Size = new System.Drawing.Size(75, 23);
+            this.btnHuyy.TabIndex = 1;
+            this.btnHuyy.Text = "Cancel";
+            this.btnHuyy.Click += new System.EventHandler(this.btnHuyy_Click);
             // 
             // frmDiem
             // 
@@ -535,10 +535,10 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel4;
         private DevExpress.XtraEditors.GroupControl groupControl1;
-        private DevExpress.XtraEditors.SimpleButton btnHuyy;
         private DevExpress.XtraEditors.SimpleButton btnLuu;
         private DevExpress.XtraEditors.SimpleButton btnNhap;
         private System.Windows.Forms.Panel panel3;
         private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit repositoryItemTextEditNhap;
+        private DevExpress.XtraEditors.SimpleButton btnHuyy;
     }
 }
